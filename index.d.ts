@@ -1,5 +1,5 @@
 declare module "iso-639-1" {
-  interface ISO6391 {
+  interface ISO6391JP {
     getName: (code: string) => string;
     getAllNames: () => Array<string>;
     getNativeName: (code: string) => string;
@@ -14,7 +14,7 @@ declare module "iso-639-1" {
     }>;
   }
 
-  let localeCode: ISO6391;
+  let localeCode: ISO6391JP;
 
   export default localeCode;
 }

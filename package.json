@@ -1,7 +1,7 @@
 {
-  "name": "iso-639-1",
-  "version": "2.1.3",
-  "description": "ISO-639-1 codes",
+  "name": "iso-639-1-jp",
+  "version": "1.0.0",
+  "description": "ISO-639-1 言語コードの日本語変換モジュール。https://github.com/meikidd/iso-639-1 をForkしています",
   "main": "build/index.js",
   "module": "src/index.js",
   "typings": "index.d.ts",
@@ -11,21 +11,22 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/meikidd/iso-639-1.git"
+    "url": "git+https://github.com/kota-yata/iso-639-1-jp.git"
   },
   "keywords": [
     "iso",
     "iso-639",
     "iso-639-1",
+    "iso-639-1-jp",
     "language",
     "language code",
     "locale",
     "locale code"
   ],
-  "author": "meikidd <meikidd@gmail.com>",
+  "author": "Original: meikidd <meikidd@gmail.com>, Fork: Kota Yatagai <kota@yatagai.com>",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/meikidd/iso-639-1/issues"
+    "url": "https://github.com/kota-yata/iso-639-1-jp/issues"
   },
   "devDependencies": {
     "babel-cli": "^6.26.0",
@@ -39,7 +40,7 @@
     "mocha": "^4.0.1",
     "webpack": "^3.10.0"
   },
-  "homepage": "https://github.com/meikidd/iso-639-1#readme",
+  "homepage": "https://github.com/kota-yata/iso-639-1-jp#readme",
   "engines": {
     "node": ">=6.0"
   }

@@ -1,4 +1,4 @@
-# ISO-639-1
+# iso-639-1-jp
 [![NPM Version][npm-image]][npm-url]
 [![Build Status][travis-image]][travis-url]
 [![Download Count][download-url]][npm-url]
@@ -10,12 +10,12 @@
 [download-url]: https://img.shields.io/npm/dt/iso-639-1.svg?style=flat-square
 
 
-Simple interface for [ISO-639-1](https://en.wikipedia.org/wiki/List_of_ISO_639-1_codes) language codes
+言語コード[ISO-639-1](https://en.wikipedia.org/wiki/List_of_ISO_639-1_codes)の日本語変換モジュール
 
 ## Installation
 
 ```
-npm install iso-639-1
+npm i iso-639-1-jp
 ```
 
 ## Usage
@@ -23,15 +23,15 @@ npm install iso-639-1
 ### Node.js
 
 ```javascript
-const ISO6391 = require('iso-639-1');
-console.log(ISO6391.getName('en')); // 'English'
+const ISO6391JP = require('iso-639-1-jp');
+console.log(ISO6391JP.getName('en')); // '英語'
 ```
 
 ### ES Module
 
 ```javascript
-import ISO6391 from 'iso-639-1';
-console.log(ISO6391.getName('en')); // 'English'
+import ISO6391JP from 'iso-639-1-jp';
+console.log(ISO6391JP.getName('en')); // '英語'
 ```
 
 ### Browsers
@@ -39,13 +39,13 @@ console.log(ISO6391.getName('en')); // 'English'
 HTML
 
 ```html
-<script type="text/javascript" src="./node_modules/iso-639-1/build/index.js"></script>
+<script type="text/javascript" src="./node_modules/iso-639-1-jp/build/index.js"></script>
 ```
 
-Visit global variable ISO6391 in js
+Visit global variable ISO6391JP in js
 
 ```javascript
-console.log(ISO6391.getName('en')); // 'English'
+console.log(ISO6391JP.getName('en')); // '英語'
 ```
 
 ## Methods
@@ -99,23 +99,23 @@ Get the array of the language objects by the given codes
 ## Example
 
 ```
-const ISO6391 = require('iso-639-1')
+const ISO6391JP = require('iso-639-1')
 
-console.log(ISO6391.getName('zh')) // 'Chinese'
-console.log(ISO6391.getNativeName('zh')) // '中文'
+console.log(ISO6391JP.getName('zh')) // 'Chinese'
+console.log(ISO6391JP.getNativeName('zh')) // '中文'
 
-console.log(ISO6391.getAllNames()) // ['Afar','Abkhaz', ... ,'Zulu']
-console.log(ISO6391.getAllNativeNames()) //['Afaraf','аҧсуа бызшәа', ... ,'isiZulu' ]
+console.log(ISO6391JP.getAllNames()) // ['Afar','Abkhaz', ... ,'Zulu']
+console.log(ISO6391JP.getAllNativeNames()) //['Afaraf','аҧсуа бызшәа', ... ,'isiZulu' ]
 
-console.log(ISO6391.getCode('Chinese')) // 'zh'
-console.log(ISO6391.getCode('中文')) // 'zh'
+console.log(ISO6391JP.getCode('Chinese')) // 'zh'
+console.log(ISO6391JP.getCode('中文')) // 'zh'
 
-console.log(ISO6391.getAllCodes()) //['aa','ab',...,'zu']
+console.log(ISO6391JP.getAllCodes()) //['aa','ab',...,'zu']
 
-console.log(ISO6391.validate('en')) // true
-console.log(ISO6391.validate('xx')) // false
+console.log(ISO6391JP.validate('en')) // true
+console.log(ISO6391JP.validate('xx')) // false
 
-console.log(ISO6391.getLanguages(['en', 'zh']))
+console.log(ISO6391JP.getLanguages(['en', 'zh']))
 // [{code:'en',name:'English',nativeName:'English'},{code:'zh',name:'Chinese',nativeName:'中文'}]
 
 ```

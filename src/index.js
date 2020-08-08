@@ -1,16 +1,16 @@
 import LANGUAGES_LIST from './data';
 
-export default class ISO6391 {
+export default class ISO6391JP {
   static getLanguages(codes = []) {
     return codes.map(code => ({
       code,
-      name: ISO6391.getName(code),
-      nativeName: ISO6391.getNativeName(code),
+      name: ISO6391JP.getName(code),
+      nativeName: ISO6391JP.getNativeName(code),
     }));
   }
 
   static getName(code) {
-    return ISO6391.validate(code) ? LANGUAGES_LIST[code].name : '';
+    return ISO6391JP.validate(code) ? LANGUAGES_LIST[code].name : '';
   }
 
   static getAllNames() {
@@ -18,7 +18,7 @@ export default class ISO6391 {
   }
 
   static getNativeName(code) {
-    return ISO6391.validate(code) ? LANGUAGES_LIST[code].nativeName : '';
+    return ISO6391JP.validate(code) ? LANGUAGES_LIST[code].nativeName : '';
   }
 
   static getAllNativeNames() {

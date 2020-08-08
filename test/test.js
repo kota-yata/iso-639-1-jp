@@ -1,80 +1,80 @@
 const assert = require('assert');
-const ISO6391 = require('../build/index');
+const ISO6391JP = require('../build/index');
 
 describe('getName()', function() {
   it('en', function() {
-    assert.equal(ISO6391.getName('en'), 'English');
+    assert.equal(ISO6391JP.getName('en'), '英語');
   });
   it('zh', function() {
-    assert.equal(ISO6391.getName('zh'), 'Chinese');
+    assert.equal(ISO6391JP.getName('zh'), '中国語');
   });
   it('xx', function() {
-    assert.equal(ISO6391.getName('xx'), '');
+    assert.equal(ISO6391JP.getName('xx'), '');
   });
   it('toString', function() {
-    assert.equal(ISO6391.getName('toString'), '');
+    assert.equal(ISO6391JP.getName('toString'), '');
   });
 });
 
 describe('getNativeName()', function() {
   it('en', function() {
-    assert.equal(ISO6391.getNativeName('en'), 'English');
+    assert.equal(ISO6391JP.getNativeName('en'), 'English');
   });
   it('zh', function() {
-    assert.equal(ISO6391.getNativeName('zh'), '中文');
+    assert.equal(ISO6391JP.getNativeName('zh'), '中文');
   });
   it('xx', function() {
-    assert.equal(ISO6391.getNativeName('xx'), '');
+    assert.equal(ISO6391JP.getNativeName('xx'), '');
   });
   it('toString', function() {
-    assert.equal(ISO6391.getNativeName('toString'), '');
+    assert.equal(ISO6391JP.getNativeName('toString'), '');
   });
 });
 
 describe('getCode()', function() {
-  it('English', function() {
-    assert.equal(ISO6391.getCode('English'), 'en');
+  it('英語', function() {
+    assert.equal(ISO6391JP.getCode('英語'), 'en');
   });
-  it('Chinese', function() {
-    assert.equal(ISO6391.getCode('Chinese'), 'zh');
+  it('中国語', function() {
+    assert.equal(ISO6391JP.getCode('中国語'), 'zh');
   });
   it('中文', function() {
-    assert.equal(ISO6391.getCode('中文'), 'zh');
+    assert.equal(ISO6391JP.getCode('中文'), 'zh');
   });
   it('xx', function() {
-    assert.equal(ISO6391.getCode('xx'), '');
+    assert.equal(ISO6391JP.getCode('xx'), '');
   });
   it('toString', function() {
-    assert.equal(ISO6391.getCode('toString'), '');
+    assert.equal(ISO6391JP.getCode('toString'), '');
   });
 });
 
 describe('validate()', function() {
   it('en', function() {
-    assert.equal(ISO6391.validate('en'), true);
+    assert.equal(ISO6391JP.validate('en'), true);
   });
   it('zh', function() {
-    assert.equal(ISO6391.validate('zh'), true);
+    assert.equal(ISO6391JP.validate('zh'), true);
   });
   it('xx', function() {
-    assert.equal(ISO6391.validate('xx'), false);
+    assert.equal(ISO6391JP.validate('xx'), false);
   });
   it('toString', function() {
-    assert.equal(ISO6391.validate('toString'), false);
+    assert.equal(ISO6391JP.validate('toString'), false);
   });
 });
 
 describe('getLanguages()', function() {
   it('[en, zh, xx, toString]', function() {
-    assert.deepEqual(ISO6391.getLanguages(['en', 'zh', 'xx', 'toString']), [
+    assert.deepEqual(ISO6391JP.getLanguages(['en', 'zh', 'xx', 'toString']), [
       {
         code: 'en',
-        name: 'English',
+        name: '英語',
         nativeName: 'English',
       },
       {
         code: 'zh',
-        name: 'Chinese',
+        name: '中国語',
         nativeName: '中文',
       },
       {
