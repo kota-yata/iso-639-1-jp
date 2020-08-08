@@ -1,16 +1,11 @@
 # iso-639-1-jp
-[![NPM Version][npm-image]][npm-url]
-[![Build Status][travis-image]][travis-url]
-[![Download Count][download-url]][npm-url]
-
-[travis-image]: https://travis-ci.org/meikidd/iso-639-1.svg?branch=master
-[travis-url]: https://travis-ci.org/meikidd/iso-639-1
-[npm-image]: https://img.shields.io/npm/v/iso-639-1.svg?style=flat-square
-[npm-url]: https://npmjs.org/package/iso-639-1
-[download-url]: https://img.shields.io/npm/dt/iso-639-1.svg?style=flat-square
-
+[![NPM](https://nodei.co/npm/iso-639-1-jp.png?downloads=true&downloadRank=true&stars=true)](https://nodei.co/npm/iso-639-1-jp/)
+[![Build Status](https://travis-ci.org/kota-yata/iso-639-1-jp.svg?branch=master)](https://travis-ci.org/kota-yata/iso-639-1-jp)
+[![npm version](https://badge.fury.io/js/iso-639-1-jp.svg)](https://badge.fury.io/js/iso-639-1-jp)
 
 言語コード[ISO-639-1](https://en.wikipedia.org/wiki/List_of_ISO_639-1_codes)の日本語変換モジュール
+
+Fork元: https://github.com/meikidd/iso-639-1
 
 ## Installation
 
@@ -118,4 +113,19 @@ console.log(ISO6391JP.validate('xx')) // false
 console.log(ISO6391JP.getLanguages(['en', 'zh']))
 // [{code:'en',name:'English',nativeName:'English'},{code:'zh',name:'Chinese',nativeName:'中文'}]
 
+```
+
+
+## Development
+### Install
+```
+$ yarn install
+```
+### Build
+```
+$ yarn build
+```
+### Test
+```
+$ mocha test
 ```
