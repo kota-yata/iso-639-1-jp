@@ -121,6 +121,7 @@ $ yarn install
 ```
 ### Build
 ```
+// Webpack build
 $ yarn build
 ```
 ### Test
