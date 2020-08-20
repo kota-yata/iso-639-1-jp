@@ -7,7 +7,8 @@
   "typings": "index.d.ts",
   "scripts": {
     "build": "webpack",
-    "test": "mocha"
+    "test": "mocha",
+    "docs": "node_modules/.bin/jsdoc ./src README.md --configure conf.json --verbose"
   },
   "repository": {
     "type": "git",
@@ -43,5 +44,9 @@
   "homepage": "https://github.com/kota-yata/iso-639-1-jp#readme",
   "engines": {
     "node": ">=6.0"
+  },
+  "dependencies": {
+    "clean-jsdoc-theme": "^2.2.11",
+    "jsdoc": "^3.6.5"
   }
 }

@@ -244,7 +244,7 @@ module.exports = function (it) {
 /***/ "./node_modules/core-js/library/modules/_core.js":
 /***/ (function(module, exports) {
 
-var core = module.exports = { version: '2.5.1' };
+var core = module.exports = { version: '2.6.9' };
 if (typeof __e == 'number') __e = core; // eslint-disable-line no-undef
 
 
@@ -332,6 +332,7 @@ var global = __webpack_require__("./node_modules/core-js/library/modules/_global
 var core = __webpack_require__("./node_modules/core-js/library/modules/_core.js");
 var ctx = __webpack_require__("./node_modules/core-js/library/modules/_ctx.js");
 var hide = __webpack_require__("./node_modules/core-js/library/modules/_hide.js");
+var has = __webpack_require__("./node_modules/core-js/library/modules/_has.js");
 var PROTOTYPE = 'prototype';
 
 var $export = function (type, name, source) {
@@ -349,7 +350,7 @@ var $export = function (type, name, source) {
   for (key in source) {
     // contains in native
     own = !IS_FORCED && target && target[key] !== undefined;
-    if (own && key in exports) continue;
+    if (own && has(exports, key)) continue;
     // export native or passed
     out = own ? target[key] : source[key];
     // prevent global pollution for namespaces
@@ -479,6 +480,14 @@ module.exports = function (it) {
 
 /***/ }),
 
+/***/ "./node_modules/core-js/library/modules/_library.js":
+/***/ (function(module, exports) {
+
+module.exports = true;
+
+
+/***/ }),
+
 /***/ "./node_modules/core-js/library/modules/_object-dp.js":
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -568,6 +577,7 @@ module.exports = function (KEY, exec) {
 /***/ "./node_modules/core-js/library/modules/_object-to-array.js":
 /***/ (function(module, exports, __webpack_require__) {
 
+var DESCRIPTORS = __webpack_require__("./node_modules/core-js/library/modules/_descriptors.js");
 var getKeys = __webpack_require__("./node_modules/core-js/library/modules/_object-keys.js");
 var toIObject = __webpack_require__("./node_modules/core-js/library/modules/_to-iobject.js");
 var isEnum = __webpack_require__("./node_modules/core-js/library/modules/_object-pie.js").f;
@@ -579,9 +589,13 @@ module.exports = function (isEntries) {
     var i = 0;
     var result = [];
     var key;
-    while (length > i) if (isEnum.call(O, key = keys[i++])) {
-      result.push(isEntries ? [key, O[key]] : O[key]);
-    } return result;
+    while (length > i) {
+      key = keys[i++];
+      if (!DESCRIPTORS || isEnum.call(O, key)) {
+        result.push(isEntries ? [key, O[key]] : O[key]);
+      }
+    }
+    return result;
   };
 };
 
@@ -618,12 +632,18 @@ module.exports = function (key) {
 /***/ "./node_modules/core-js/library/modules/_shared.js":
 /***/ (function(module, exports, __webpack_require__) {
 
+var core = __webpack_require__("./node_modules/core-js/library/modules/_core.js");
 var global = __webpack_require__("./node_modules/core-js/library/modules/_global.js");
 var SHARED = '__core-js_shared__';
 var store = global[SHARED] || (global[SHARED] = {});
-module.exports = function (key) {
-  return store[key] || (store[key] = {});
-};
+
+(module.exports = function (key, value) {
+  return store[key] || (store[key] = value !== undefined ? value : {});
+})('versions', []).push({
+  version: core.version,
+  mode: __webpack_require__("./node_modules/core-js/library/modules/_library.js") ? 'pure' : 'global',
+  copyright: '© 2019 Denis Pushkarev (zloirock.ru)'
+});
 
 
 /***/ }),
@@ -1551,6 +1571,9 @@ var _data2 = _interopRequireDefault(_data);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
+/**
+ * @module ISO6391JP
+ */
 var ISO6391JP = function () {
   function ISO6391JP() {
     (0, _classCallCheck3.default)(this, ISO6391JP);
@@ -1558,6 +1581,15 @@ var ISO6391JP = function () {
 
   (0, _createClass3.default)(ISO6391JP, null, [{
     key: 'getLanguages',
+
+    /**
+     * 入力したisoコードの日本語名、ネイティブ表記、isoコードを配列で返す
+     * @param {Array} codes isoコードを配列で渡す
+     * @return {Array} 配列で渡された各isoコードの情報オブジェクトを配列に格納して返す
+     * @example
+     * console.log(ISO6391JP.getLanguages(['en', 'zh']))
+     * // [{code:'en',name:'英語',nativeName:'English'},{code:'zh',name:'中国語',nativeName:'中文'}]
+     */
     value: function getLanguages() {
       var codes = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : [];
 
@@ -1569,11 +1601,28 @@ var ISO6391JP = function () {
         };
       });
     }
+
+    /**
+     * 引数に入力したisoコードの日本語名を返す
+     * @param {string} code isoコードを文字列で渡す
+     * @return {string} 引数で渡されたisoコードの日本語名を文字列で返す
+     * @example
+     * console.log(ISO6391JP.getName('zh')) // '中国語'
+     */
+
   }, {
     key: 'getName',
     value: function getName(code) {
       return ISO6391JP.validate(code) ? _data2.default[code].name : '';
     }
+
+    /**
+     * 全てのisoコードの日本語名を返す
+     * @return {Array} isoコードのアルファベット順に日本語名を配列で返す
+     * @example
+     * console.log(ISO6391JP.getAllNames()) // ['アファル語','アブハズ語', ... ,'ズールー語']
+     */
+
   }, {
     key: 'getAllNames',
     value: function getAllNames() {
@@ -1581,11 +1630,28 @@ var ISO6391JP = function () {
         return l.name;
       });
     }
+
+    /**
+     * 引数に入力したisoコードの名称をネイティブの言語で返す
+     * @param {string} code isoコードを文字列で渡す
+     * @return {string} 引数で渡されたisoコードをネイティブ表記の文字列で返す
+     * @example
+     * console.log(ISO6391JP.getNativeName('zh')) // '中文'
+     */
+
   }, {
     key: 'getNativeName',
     value: function getNativeName(code) {
       return ISO6391JP.validate(code) ? _data2.default[code].nativeName : '';
     }
+
+    /**
+     * 全てのisoコードのネイティブの名称を返す
+     * @return {Array} isoコードのアルファベット順にネイティブ表記を配列で返す
+     * @example
+     * console.log(ISO6391JP.getAllNativeNames()) //['Afaraf','аҧсуа бызшәа', ... ,'isiZulu' ]
+     */
+
   }, {
     key: 'getAllNativeNames',
     value: function getAllNativeNames() {
@@ -1593,6 +1659,15 @@ var ISO6391JP = function () {
         return l.nativeName;
       });
     }
+
+    /**
+     * 日本語、またはネイティブの言語で入力した言語名のisoコードを返す
+     * @param {string} name 日本語名またはネイティブの言語名を文字列で渡す
+     * @return {string} 引数で渡された言語のisoコードを文字列で返す
+     * @example
+     * console.log(ISO6391JP.getCode('中国語')) // 'zh'
+     */
+
   }, {
     key: 'getCode',
     value: function getCode(name) {
@@ -1603,11 +1678,29 @@ var ISO6391JP = function () {
       });
       return code || '';
     }
+
+    /**
+     * 全てのisoコードを配列で返す
+     * @return {Array} isoコードをアルファベット順に配列で返す
+     * @example
+     * console.log(ISO6391JP.getAllCodes()) //['aa','ab',...,'zu']
+     */
+
   }, {
     key: 'getAllCodes',
     value: function getAllCodes() {
       return (0, _keys2.default)(_data2.default);
     }
+
+    /**
+     * 入力したコードが[ISO-639-1]{@link https://en.wikipedia.org/wiki/List_of_ISO_639-1_codes}に含まれているかの真偽値を返す
+     * @param {string} code isoコードを文字列で渡す
+     * @return {boolean} 引数で渡されたisoコードが存在すればtrue, 存在しなければfalseを返す
+     * @example
+     * console.log(ISO6391JP.validate('en')) // true
+     * console.log(ISO6391JP.validate('xx')) // false
+     */
+
   }, {
     key: 'validate',
     value: function validate(code) {
