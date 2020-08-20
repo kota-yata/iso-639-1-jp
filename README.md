@@ -49,14 +49,14 @@ console.log(ISO6391JP.getName('en')); // '英語'
 ### Install
 
 ```
-yarn install
+npm install
 ```
 
 ### Build
 
 ```
 // Webpack build
-yarn build
+npm run build
 ```
 
 ### Test
