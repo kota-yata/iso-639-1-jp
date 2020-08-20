@@ -1,6 +1,6 @@
 {
   "name": "iso-639-1-jp",
-  "version": "1.0.4",
+  "version": "1.0.5",
   "description": "ISO-639-1 言語コードの日本語変換モジュール。Origin: https://github.com/meikidd/iso-639-1",
   "main": "build/index.js",
   "module": "src/index.js",
