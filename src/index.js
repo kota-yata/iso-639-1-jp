@@ -15,7 +15,7 @@ export default class ISO6391JP {
    * // [{code:'en',name:'英語',nativeName:'English'},{code:'zh',name:'中国語',nativeName:'中文'}]
    */
   static getLanguages(codes = []) {
-    return codes.map(code => ({
+    return codes.map((code) => ({
       code,
       name: ISO6391JP.getName(code),
       nativeName: ISO6391JP.getNativeName(code),
@@ -40,7 +40,7 @@ export default class ISO6391JP {
    * console.log(ISO6391JP.getAllNames()) // ['アファル語','アブハズ語', ... ,'ズールー語']
    */
   static getAllNames() {
-    return Object.values(LANGUAGES_LIST).map(l => l.name);
+    return Object.values(LANGUAGES_LIST).map((l) => l.name);
   }
 
   /**
@@ -61,7 +61,7 @@ export default class ISO6391JP {
    * console.log(ISO6391JP.getAllNativeNames()) //['Afaraf','аҧсуа бызшәа', ... ,'isiZulu' ]
    */
   static getAllNativeNames() {
-    return Object.values(LANGUAGES_LIST).map(l => l.nativeName);
+    return Object.values(LANGUAGES_LIST).map((l) => l.nativeName);
   }
 
   /**
@@ -72,7 +72,7 @@ export default class ISO6391JP {
    * console.log(ISO6391JP.getCode('中国語')) // 'zh'
    */
   static getCode(name) {
-    const code = Object.keys(LANGUAGES_LIST).find(code => {
+    const code = Object.keys(LANGUAGES_LIST).find((code) => {
       const language = LANGUAGES_LIST[code];
 
       return (

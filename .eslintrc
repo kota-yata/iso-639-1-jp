@@ -19,10 +19,10 @@
       }
     ],
     "no-param-reassign": [
-      "error", 
-      { 
+      "error",
+      {
         // 允许修改参数的属性
-        "props": false 
+        "props": false
       }
     ],
     // 允许在循环里使用 await

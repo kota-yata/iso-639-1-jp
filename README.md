@@ -1,4 +1,5 @@
 # iso-639-1-jp
+
 [![NPM](https://nodei.co/npm/iso-639-1-jp.png?downloads=true&downloadRank=true&stars=true)](https://nodei.co/npm/iso-639-1-jp/)
 [![Build Status](https://travis-ci.org/kota-yata/iso-639-1-jp.svg?branch=master)](https://travis-ci.org/kota-yata/iso-639-1-jp)
 [![npm version](https://badge.fury.io/js/iso-639-1-jp.svg)](https://badge.fury.io/js/iso-639-1-jp)
@@ -44,16 +45,22 @@ console.log(ISO6391JP.getName('en')); // '英語'
 ```
 
 ## Development
+
 ### Install
+
 ```
 yarn install
 ```
+
 ### Build
+
 ```
 // Webpack build
 yarn build
 ```
+
 ### Test
+
 ```
 mocha test
 ```

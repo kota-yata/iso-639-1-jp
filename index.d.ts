@@ -1,4 +1,4 @@
-declare module "iso-639-1" {
+declare module 'iso-639-1' {
   interface ISO6391JP {
     getName: (code: string) => string;
     getAllNames: () => Array<string>;
@@ -7,7 +7,9 @@ declare module "iso-639-1" {
     getCode: (name: string) => string;
     getAllCodes: () => Array<string>;
     validate: (code: string) => boolean;
-    getLanguages: (codes: Array<string>) => Array<{
+    getLanguages: (
+      codes: Array<string>,
+    ) => Array<{
       code: string;
       name: string;
       nativeName: string;

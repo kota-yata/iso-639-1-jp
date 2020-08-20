@@ -12,7 +12,7 @@ let webpackConfig = {
     path: path.resolve(__dirname, `./build`), // 输出路径
     filename: '[name].js', // js 文件路径
     library: 'ISO6391JP',
-    libraryTarget: 'umd'
+    libraryTarget: 'umd',
   },
   devtool: 'cheap-source-map',
   module: {
