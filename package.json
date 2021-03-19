@@ -6,8 +6,7 @@
   "typings": "./types/index.d.ts",
   "scripts": {
     "test": "mocha",
-    "format": "eslint --fix .",
-    "docs": "typedoc"
+    "format": "eslint --fix ."
   },
   "repository": {
     "type": "git",
@@ -37,7 +36,5 @@
   "engines": {
     "node": ">=6.0"
   },
-  "dependencies": {
-    "typedoc": "^0.20.32"
-  }
+  "dependencies": {}
 }
