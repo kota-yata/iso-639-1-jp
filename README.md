@@ -25,7 +25,7 @@ const ISO6391JP = require('iso-639-1-jp');
 console.log(ISO6391JP.getName('en')); // '英語'
 ```
 
-### ES Module
+### Node.js with ES Module
 
 ```javascript
 import ISO6391JP from 'iso-639-1-jp';
@@ -33,8 +33,6 @@ console.log(ISO6391JP.getName('en')); // '英語'
 ```
 
 ### Browsers
-
-HTML
 
 ```html
 <script type="text/javascript" src="./node_modules/iso-639-1-jp/build/index.js"></script>

@@ -1,14 +1,13 @@
 {
   "name": "iso-639-1-jp",
   "version": "1.0.6",
-  "description": "ISO-639-1 言語コードの日本語変換モジュール。Origin: https://github.com/meikidd/iso-639-1",
+  "description": "ISO-639-1 言語コードの日本語変換モジュール。Original Repo: https://github.com/meikidd/iso-639-1",
   "main": "build/index.js",
-  "module": "src/index.js",
-  "typings": "index.d.ts",
+  "typings": "./types/index.d.ts",
   "scripts": {
-    "build": "webpack",
     "test": "mocha",
-    "docs": "node_modules/.bin/jsdoc ./src README.md --configure conf.json --verbose"
+    "format": "eslint --fix .",
+    "docs": "typedoc"
   },
   "repository": {
     "type": "git",
@@ -30,23 +29,15 @@
     "url": "https://github.com/kota-yata/iso-639-1-jp/issues"
   },
   "devDependencies": {
-    "babel-cli": "^6.26.0",
-    "babel-core": "^6.26.0",
-    "babel-loader": "^7.1.2",
-    "babel-plugin-add-module-exports": "^0.2.1",
-    "babel-plugin-transform-runtime": "^6.23.0",
-    "babel-preset-es2015": "^6.24.1",
-    "babel-preset-stage-0": "^6.24.1",
-    "clean-webpack-plugin": "^0.1.17",
+    "@types/node": "^14.14.35",
     "mocha": "^4.0.1",
-    "webpack": "^3.10.0"
+    "typescript": "^4.2.3"
   },
   "homepage": "https://github.com/kota-yata/iso-639-1-jp#readme",
   "engines": {
     "node": ">=6.0"
   },
   "dependencies": {
-    "clean-jsdoc-theme": "^2.2.11",
-    "jsdoc": "^3.6.5"
+    "typedoc": "^0.20.32"
   }
 }
